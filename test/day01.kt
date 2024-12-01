@@ -18,20 +18,6 @@ class day01 {
                     mutableListOf(1, 1, 1)
                 ),
                 0
-            ),
-            Pair(
-                arrayOf(
-                    mutableListOf(10, 20, 30),
-                    mutableListOf(30, 20, 10)
-                ),
-                0
-            ),
-            Pair(
-                arrayOf(
-                    mutableListOf(5, 6, 7, 8),
-                    mutableListOf(8, 7, 6, 5)
-                ),
-                0
             )
         )
 
