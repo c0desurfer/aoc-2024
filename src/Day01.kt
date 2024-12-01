@@ -31,31 +31,10 @@ fun parseInput(): Array<MutableList<Int>> {
 }
 
 fun calculateTotalDistance(input: Array<MutableList<Int>>): Int {
-    input[0].sort()
-    input[1].sort()
-
-    var sum = 0
-    val size = minOf(input[0].size, input[1].size)
-
-    for (i in 0..<size) {
-        sum += abs(input[0][i] - input[1][i])
-    }
-
-    return sum
+    return input[0].sorted().zip(input[1].sorted()).sumOf { (a, b ) -> abs(a - b)}
 }
 
 fun calculateSimilarityScore(input: Array<MutableList<Int>>): Int {
-    var score = 0
-
-    val frequencyMap = mutableMapOf<Int, Int>()
-    for (element in input[1]) {
-        frequencyMap[element] = frequencyMap.getOrDefault(element, 0) + 1
-    }
-
-    for (element in input[0]) {
-        val count = frequencyMap[element] ?: 0
-        score += element * count
-    }
-
-    return score
+    val frequencyMap = input[1].groupingBy { it }.eachCount()
+    return input[0].sumOf { element -> element * (frequencyMap[element] ?: 0) }
 }
