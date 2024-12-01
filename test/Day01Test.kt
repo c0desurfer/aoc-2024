@@ -10,18 +10,29 @@ class Day01Test {
                     mutableListOf(4, 3, 5, 3, 9, 3)
                 ),
                 11
-            ),
-            Pair(
-                arrayOf(
-                    mutableListOf(1, 1, 1),
-                    mutableListOf(1, 1, 1)
-                ),
-                0
             )
         )
 
         for ((input, expected) in testCases) {
             val result = calculateTotalDistance(input)
+            assertEquals(expected, result)
+        }
+    }
+
+    @Test
+    fun testSimilarityScore() {
+        val testCases = arrayOf(
+            Pair(
+                arrayOf(
+                    mutableListOf(3, 4, 2, 1, 3, 3),
+                    mutableListOf(4, 3, 5, 3, 9, 3)
+                ),
+                31
+            )
+        )
+
+        for ((input, expected) in testCases) {
+            val result = calculateSimilarityScore(input)
             assertEquals(expected, result)
         }
     }

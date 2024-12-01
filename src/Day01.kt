@@ -3,12 +3,17 @@ import kotlin.math.abs
 fun main() {
     val input = parseInput()
 
-    val startTime = System.nanoTime()
+    var startTime = System.nanoTime()
     val sum = calculateTotalDistance(input)
-    val endTime = System.nanoTime()
-    val executionTime = endTime - startTime
-
+    var endTime = System.nanoTime()
+    var executionTime = endTime - startTime
     println("Total distance is $sum, calculated in $executionTime ns.")
+
+    startTime = System.nanoTime()
+    val score = calculateSimilarityScore(input)
+    endTime = System.nanoTime()
+    executionTime = endTime - startTime
+    println("Similarity score is $score, calculated in $executionTime ns.")
 }
 
 fun parseInput(): Array<MutableList<Int>> {
@@ -41,4 +46,17 @@ fun calculateTotalDistance(input: Array<MutableList<Int>>): Int {
     }
 
     return sum
+}
+
+fun calculateSimilarityScore(input: Array<MutableList<Int>>): Int {
+    require(input.size == 2) { "Input must contain exactly two lists." }
+
+    var score = 0
+
+    for (element in input[0]) {
+        val count = input[1].count { it == element }
+        score += element * count
+    }
+
+    return score
 }
