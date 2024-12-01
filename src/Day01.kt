@@ -31,7 +31,7 @@ fun parseInput(): Array<MutableList<Int>> {
 }
 
 fun calculateTotalDistance(input: Array<MutableList<Int>>): Int {
-    return input[0].sorted().zip(input[1].sorted()).sumOf { (a, b ) -> abs(a - b)}
+    return input[0].sorted().zip(input[1].sorted()).sumOf { (a, b) -> abs(a - b)}
 }
 
 fun calculateSimilarityScore(input: Array<MutableList<Int>>): Int {
