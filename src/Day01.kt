@@ -23,12 +23,8 @@ fun parseInput(): Array<MutableList<Int>> {
 
     for (line in input) {
         val numbers = line.split("\\s+".toRegex()).mapNotNull { it.toIntOrNull() }
-        if (numbers.size == 2) {
-            lists[0].add(numbers[0])
-            lists[1].add(numbers[1])
-        } else {
-            println("Invalid input on line $line. Please ensure each line contains exactly two numbers.")
-        }
+        lists[0].add(numbers[0])
+        lists[1].add(numbers[1])
     }
 
     return lists
@@ -49,8 +45,6 @@ fun calculateTotalDistance(input: Array<MutableList<Int>>): Int {
 }
 
 fun calculateSimilarityScore(input: Array<MutableList<Int>>): Int {
-    require(input.size == 2) { "Input must contain exactly two lists." }
-
     var score = 0
 
     val frequencyMap = mutableMapOf<Int, Int>()
