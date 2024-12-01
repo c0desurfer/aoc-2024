@@ -53,8 +53,13 @@ fun calculateSimilarityScore(input: Array<MutableList<Int>>): Int {
 
     var score = 0
 
+    val frequencyMap = mutableMapOf<Int, Int>()
+    for (element in input[1]) {
+        frequencyMap[element] = frequencyMap.getOrDefault(element, 0) + 1
+    }
+
     for (element in input[0]) {
-        val count = input[1].count { it == element }
+        val count = frequencyMap[element] ?: 0
         score += element * count
     }
 
