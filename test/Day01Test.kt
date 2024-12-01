@@ -1,7 +1,6 @@
 import org.junit.Test
 import org.junit.jupiter.api.Assertions.*
-class day01 {
-
+class Day01Test {
     @Test
     fun testCalculateTotalDistance() {
         val testCases = arrayOf(
